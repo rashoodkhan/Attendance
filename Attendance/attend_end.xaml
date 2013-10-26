@@ -39,7 +39,7 @@
 
         </Grid>
 
-        <Grid x:Name="absnt_disp" HorizontalAlignment="Left" Height="321" VerticalAlignment="Top" Width="480" Grid.Row="1"/>
+        <Grid x:Name="absnt_disp" HorizontalAlignment="Left" Height="524" VerticalAlignment="Top" Width="480" Grid.Row="1"/>
     </Grid>
 
 </phone:PhoneApplicationPage>

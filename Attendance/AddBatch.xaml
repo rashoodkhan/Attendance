@@ -19,7 +19,7 @@
             <shell:ApplicationBarIconButton x:Name="done" IconUri="/Assets/AppBar/check.png" Text="save" Click="save"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
-    
+
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -40,6 +40,8 @@
             <TextBlock HorizontalAlignment="Left" Margin="0,273,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" FontSize="26"/>
             <TextBox x:Name="num" HorizontalAlignment="Left" Height="72" Margin="133,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323"/>
             <TextBlock x:Name="msg" HorizontalAlignment="Left" Margin="10,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="436" FontSize="24"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,73,0,0" TextWrapping="Wrap" Text="Course id" VerticalAlignment="Top" FontSize="26"/>
+            <TextBox x:Name="c_id" HorizontalAlignment="Left" Height="72" Margin="133,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323"/>
 
         </Grid>
     </Grid>

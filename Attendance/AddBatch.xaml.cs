@@ -27,15 +27,21 @@ namespace Attendance
 
         private void save(object sender, System.EventArgs e)
         {
+            if (c_id.Text == "")
+            {
+                msg.Text = "Please enter course id";
+                return;
+            }
+
             if (name.Text == "")
             {
-                msg.Text = "Plz enter class name";
+                msg.Text = "Please enter class name";
                 return;
             }
 
             if (num.Text == "")
             {
-                msg.Text = "Plz enter class strength";
+                msg.Text = "Please enter class strength";
                 return;
             }
 
@@ -45,7 +51,7 @@ namespace Attendance
                 return;
             }
 
-            Batch batch = new Batch(name.Text, Convert.ToInt16(num.Text));
+            Batch batch = new Batch(c_id.Text, name.Text, Convert.ToInt16(num.Text));
             storage[name.Text] = batch;
 
             App.batch_name_list.Add(name.Text);

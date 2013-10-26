@@ -12,6 +12,8 @@ namespace Attendance
     public class Batch
     {
         [DataMember]
+        public String course_id { get; set; }
+        [DataMember]
         public String name { get; set; }
         [DataMember]
         public int num_students { get; set; }
@@ -20,9 +22,10 @@ namespace Attendance
         [DataMember]
         public List<DateTime> date_list { get; set; }
 
-        public Batch(String name, int num)
+        public Batch(String id, String name, int num)
         {
             this.name = name;
+            this.course_id = id;
             this.num_students = num;
 
             date_list = new List<DateTime>();
