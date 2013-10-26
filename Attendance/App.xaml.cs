@@ -7,6 +7,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Attendance.Resources;
+using System.IO.IsolatedStorage;
+using System.Collections.Generic;
 
 namespace Attendance
 {
@@ -16,13 +18,38 @@ namespace Attendance
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
+
+        public static bool nameIn;
+        public static String batch_name;
+        public static List<String> batch_name_list;
+        public static String batch_list_code = "Batch_list";
+
         public static PhoneApplicationFrame RootFrame { get; private set; }
+
+
+        public static IsolatedStorageSettings storage = IsolatedStorageSettings.ApplicationSettings;
+
 
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>
         public App()
         {
+            nameIn = false;
+            batch_name = "";
+
+            if (storage.Contains(batch_list_code))
+            {
+                batch_name_list = (List<String>)storage[batch_list_code];
+            }
+            else
+            {
+                batch_name_list = new List<string>();
+                storage.Add(batch_list_code, batch_name_list);
+            }
+
+
+
             // Global handler for uncaught exceptions.
             UnhandledException += Application_UnhandledException;
 
@@ -73,12 +100,14 @@ namespace Attendance
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            storage.Save();
         }
 
         // Code to execute when the application is closing (eg, user hit Back)
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            storage.Save();
         }
 
         // Code to execute if a navigation fails
