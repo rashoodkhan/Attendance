@@ -18,7 +18,6 @@ c:\users\rashid khan\documents\visual studio 2012\Projects\Attendance\Attendance
 c:\users\rashid khan\documents\visual studio 2012\Projects\Attendance\Attendance\obj\Debug\XapCacheFile.xml
 C:\Attendance\Attendance\obj\Debug\App.g.cs
 C:\Attendance\Attendance\obj\Debug\AddBatch.g.cs
-C:\Attendance\Attendance\obj\Debug\attend.g.cs
 C:\Attendance\Attendance\obj\Debug\MainPage.g.cs
 C:\Attendance\Attendance\obj\Debug\Attendance.g.resources
 C:\Attendance\Attendance\obj\Debug\Attendance.Resources.AppResources.resources
@@ -61,6 +60,11 @@ C:\Attendance\Attendance\Bin\Debug\AppManifest.xaml
 C:\Attendance\Attendance\Bin\Debug\Properties\WMAppManifest.xml
 C:\Attendance\Attendance\Bin\Debug\Attendance_Debug_AnyCPU.xap
 C:\Attendance\Attendance\obj\Debug\XapCacheFile.xml
-C:\Attendance\Attendance\obj\Debug\Attendance.csprojResolveAssemblyReference.cache
 C:\Attendance\Attendance\obj\Debug\attend_end.g.cs
 C:\Attendance\Attendance\obj\Debug\stats.g.cs
+C:\Attendance\Attendance\obj\Debug\stat_disp.g.cs
+C:\Attendance\Attendance\Bin\Debug\Assets\AppBar\add.png
+C:\Attendance\Attendance\Bin\Debug\Assets\AppBar\folder.png
+C:\Attendance\Attendance\obj\Debug\Attendance.csprojResolveAssemblyReference.cache
+C:\Attendance\Attendance\obj\Debug\tk_attend.g.cs
+C:\Attendance\Attendance\obj\Debug\attend_end1.g.cs

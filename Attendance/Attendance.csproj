@@ -97,11 +97,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="attend.xaml.cs">
-      <DependentUpon>attend.xaml</DependentUpon>
-    </Compile>
     <Compile Include="attend_end.xaml.cs">
       <DependentUpon>attend_end.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="attend_end1.xaml.cs">
+      <DependentUpon>attend_end1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Batch.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -121,6 +121,9 @@
       <DependentUpon>stat_disp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Student.cs" />
+    <Compile Include="tk_attend.xaml.cs">
+      <DependentUpon>tk_attend.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -131,11 +134,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="attend.xaml">
+    <Page Include="attend_end.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="attend_end.xaml">
+    <Page Include="attend_end1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,6 +154,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="tk_attend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
@@ -160,10 +167,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\AppBar\check.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\AppBar\close.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\folder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\ApplicationIcon.png">

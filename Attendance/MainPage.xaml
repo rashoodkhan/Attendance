@@ -14,6 +14,13 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="0.5">
+            <shell:ApplicationBarIconButton x:Name="add_but" IconUri="/Assets/AppBar/add.png" Text="add" Click="add_"/>
+            <shell:ApplicationBarIconButton x:Name="stats" IconUri="/Assets/AppBar/folder.png" Text="stats" Click="stats_"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
@@ -23,29 +30,15 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Attendance Assistant" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="Classes" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="Add class" HorizontalAlignment="Left" Margin="0,530,0,0" VerticalAlignment="Top" Height="77" Width="219">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="Click">
-                        <ec:NavigateToPageAction TargetPage="/AddBatch.xaml"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </Button>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,75">
             <TextBlock x:Name="err_msg" HorizontalAlignment="Left" Margin="-2,95,0,0" TextWrapping="Wrap" Text="No classes yet. Add some." VerticalAlignment="Top" Height="50" Width="456" FontSize="24" TextAlignment="Center" Visibility="Collapsed"/>
-            <Button Content="Stats" HorizontalAlignment="Left" Margin="332,530,0,0" VerticalAlignment="Top">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="Click">
-                        <ec:NavigateToPageAction TargetPage="/stats.xaml"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </Button>
         </Grid>
-        <Grid x:Name="batch_disp" HorizontalAlignment="Left" Height="459" VerticalAlignment="Top" Width="480" Margin="0,10,0,0" Grid.Row="1"/>
+        <Grid x:Name="batch_disp" HorizontalAlignment="Left" Height="469" VerticalAlignment="Top" Width="456" Grid.Row="1" Margin="12,0,0,0"/>
 
     </Grid>
 

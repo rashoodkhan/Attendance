@@ -14,12 +14,12 @@ using System.Windows.Shapes;
 
 namespace Attendance
 {
-    public class absnt_item
+    public class absnt_item1
     {
         public Grid item;
         private TextBlock txt_box;
         int roll_num;
-        attend_end main;
+        attend_end1 main;
 
         Rectangle back;
 
@@ -31,7 +31,7 @@ namespace Attendance
             back.Visibility = Visibility.Collapsed;
         }
 
-        public absnt_item(attend_end m, int i, int roll_num)
+        public absnt_item1(attend_end1 m, int i, int roll_num)
         {
             main = m;
             item = new Grid();
@@ -44,7 +44,7 @@ namespace Attendance
             int l, t;
             l = 10 + 120 * (i % 4);
             t = 10 + 120 * (i / 4);
-            item.Margin = new Thickness(l,t,0,0);
+            item.Margin = new Thickness(l, t, 0, 0);
 
             back = new Rectangle();
             item.Children.Add(back);
@@ -74,11 +74,11 @@ namespace Attendance
         }
     }
 
-    public partial class attend_end : PhoneApplicationPage
+    public partial class attend_end1 : PhoneApplicationPage
     {
         public IsolatedStorageSettings storage = IsolatedStorageSettings.ApplicationSettings;
 
-        public attend_end()
+        public attend_end1()
         {
             InitializeComponent();
 
@@ -102,16 +102,16 @@ namespace Attendance
                 err_msg.Visibility = Visibility.Collapsed;
 
             int ind = tk_attend.temp_absnt.Count;
-            absnt_item obj;
+            absnt_item1 obj;
 
             for (int i = 0; i < ind; i++)
             {
-                obj = new absnt_item(this, i, tk_attend.temp_absnt[i]);
+                obj = new absnt_item1(this, i, tk_attend.temp_absnt[i]);
                 this.absnt_disp.Children.Add(obj.item);
             }
         }
 
-        private void save(object sender, RoutedEventArgs e)
+        private void save(object sender, GestureEventArgs e)
         {
             Batch batch = (Batch)storage[App.batch_name];
 

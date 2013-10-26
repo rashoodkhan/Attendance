@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Input;
 using System.Diagnostics;
 using System.IO.IsolatedStorage;
+using Microsoft.Xna.Framework;
 
 namespace Attendance
 {
@@ -26,7 +27,7 @@ namespace Attendance
         {
             App.batch_name = btch_name;
             App.nameIn = true;
-            main.NavigationService.Navigate(new Uri("/attend.xaml", UriKind.Relative));
+            main.NavigationService.Navigate(new Uri("/tk_attend.xaml", UriKind.Relative));
         }
 
         public fav_item(MainPage m, int i, String btch_name)
@@ -35,22 +36,22 @@ namespace Attendance
             item = new Grid();
             this.btch_name = btch_name;
 
-            item.Height = 120;
-            item.Width = 460;
+            item.Height = 60;
+            item.Width = 456;
             item.HorizontalAlignment = HorizontalAlignment.Left;
             item.VerticalAlignment = VerticalAlignment.Top;
-            item.Margin = new Thickness(10, 10 + i * 120, 0, 0);
+            item.Margin = new Thickness(10, 10 + i * 90, 0, 0);
 
             name = new TextBlock();
 
             item.Children.Add(name);
 
-            name.Height = 38;
-            name.Width = 350;
+            name.Height = 60;
+            name.Width = 456;
             name.TextWrapping = TextWrapping.NoWrap;
-            name.FontSize = 30;
+            name.FontSize = 40;
             name.Margin = new Thickness(0, 0, 0, 0);
-            name.Foreground = new SolidColorBrush((App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color);
+            name.Foreground = new SolidColorBrush(Colors.White);
             name.HorizontalAlignment = HorizontalAlignment.Left;
             name.VerticalAlignment = VerticalAlignment.Top;
             name.MouseLeftButtonDown += new MouseButtonEventHandler(expand);
@@ -102,6 +103,16 @@ namespace Attendance
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             reset_list();
+        }
+
+        private void add_(object sender, System.EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/addBatch.xaml", UriKind.Relative));
+        }
+
+        private void stats_(object sender, System.EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/stats.xaml", UriKind.Relative));
         }
     }
 }
