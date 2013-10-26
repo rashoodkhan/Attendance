@@ -25,8 +25,15 @@ namespace Attendance
             this.name = name;
             this.num_students = num;
 
+            date_list = new List<DateTime>();
+
             List<Student> student_list = new List<Student>();
             String st_name = name+"student";
+
+            for (int i = 0; i <= num_students; i++)
+            {
+                student_list.Add(new Student(i));
+            }
 
             App.storage.Add(st_name, student_list);
         }

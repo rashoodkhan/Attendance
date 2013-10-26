@@ -63,3 +63,4 @@ C:\Attendance\Attendance\Bin\Debug\Attendance_Debug_AnyCPU.xap
 C:\Attendance\Attendance\obj\Debug\XapCacheFile.xml
 C:\Attendance\Attendance\obj\Debug\Attendance.csprojResolveAssemblyReference.cache
 C:\Attendance\Attendance\obj\Debug\attend_end.g.cs
+C:\Attendance\Attendance\obj\Debug\stats.g.cs

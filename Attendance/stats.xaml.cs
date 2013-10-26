@@ -7,20 +7,18 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Attendance.Resources;
+using System.IO.IsolatedStorage;
 using System.Windows.Media;
 using System.Windows.Input;
-using System.Diagnostics;
-using System.IO.IsolatedStorage;
 
 namespace Attendance
 {
-    public class fav_item
+    public class btch_item
     {
         public Grid item;
         private TextBlock name;
         private String btch_name;
-        MainPage main;
+        stats main;
 
         private void expand(object sender, RoutedEventArgs e)
         {
@@ -29,7 +27,7 @@ namespace Attendance
             main.NavigationService.Navigate(new Uri("/attend.xaml", UriKind.Relative));
         }
 
-        public fav_item(MainPage m, int i, String btch_name)
+        public btch_item(stats m, int i, String btch_name)
         {
             main = m;
             item = new Grid();
@@ -59,20 +57,15 @@ namespace Attendance
 
         }
     }
-
-    public partial class MainPage : PhoneApplicationPage
+    public partial class stats : PhoneApplicationPage
     {
-        // Constructor
-        public MainPage()
+        public IsolatedStorageSettings storage = IsolatedStorageSettings.ApplicationSettings;
+
+        public stats()
         {
             InitializeComponent();
-
-            //reset_list();
-
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
+            reset_list();
         }
-        public IsolatedStorageSettings storage = IsolatedStorageSettings.ApplicationSettings;
 
         public void reset_list()
         {
@@ -90,18 +83,14 @@ namespace Attendance
                 err_msg.Visibility = Visibility.Collapsed;
 
             int ind = App.batch_name_list.Count;
-            fav_item obj;
+            btch_item obj;
 
             for (int i = 0; i < ind; i++)
             {
-                obj = new fav_item(this, i, App.batch_name_list[i]);
+                obj = new btch_item(this, i, App.batch_name_list[i]);
                 this.batch_disp.Children.Add(obj.item);
             }
         }
 
-        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
-        {
-            reset_list();
-        }
     }
 }

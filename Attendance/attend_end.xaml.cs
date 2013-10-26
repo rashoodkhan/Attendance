@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media;
 using System.Windows.Input;
+using System.IO.IsolatedStorage;
 
 namespace Attendance
 {
@@ -23,6 +24,7 @@ namespace Attendance
         {
             attend.temp_attnd_record[roll_num] = true;
             attend.temp_absnt.Remove(roll_num);
+            txt_box.Visibility = Visibility.Collapsed;
         }
 
         public absnt_item(attend_end m, int i, int roll_num)
@@ -44,7 +46,7 @@ namespace Attendance
             txt_box.Height = 38;
             txt_box.Width = 350;
             txt_box.TextWrapping = TextWrapping.NoWrap;
-            txt_box.FontSize = 30;
+            txt_box.FontSize = 40;
             txt_box.Margin = new Thickness(0, 0, 0, 0);
             txt_box.Foreground = new SolidColorBrush((App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color);
             txt_box.HorizontalAlignment = HorizontalAlignment.Left;
@@ -58,9 +60,13 @@ namespace Attendance
 
     public partial class attend_end : PhoneApplicationPage
     {
+        public IsolatedStorageSettings storage = IsolatedStorageSettings.ApplicationSettings;
+
         public attend_end()
         {
             InitializeComponent();
+
+            reset_list();
 
         }
 
@@ -79,14 +85,34 @@ namespace Attendance
             else
                 err_msg.Visibility = Visibility.Collapsed;
 
-            int ind = App.batch_name_list.Count;
-            fav_item obj;
+            int ind = attend.temp_absnt.Count;
+            absnt_item obj;
 
             for (int i = 0; i < ind; i++)
             {
-                obj = new absnt_item(this, i, App.batch_name_list[i]);
-                this.batch_disp.Children.Add(obj.item);
+                obj = new absnt_item(this, i, attend.temp_absnt[i]);
+                this.absnt_disp.Children.Add(obj.item);
             }
+        }
+
+        private void save(object sender, GestureEventArgs e)
+        {
+            Batch batch = (Batch)storage[App.batch_name];
+
+            batch.date_list.Add(DateTime.Now);
+            batch.lect_num++;
+
+            List<Student> student_list = (List<Student>)storage[App.batch_name + "student"];
+
+            for (int i = 1; i < batch.num_students; i++)
+            {
+                student_list[i].attended.Add(attend.temp_attnd_record[i]);
+            }
+
+            storage[App.batch_name] = batch;
+            storage[App.batch_name + "student"] = student_list;
+
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     }
 }

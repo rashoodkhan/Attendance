@@ -11,8 +11,14 @@ namespace Attendance
     public class Student
     {
         [DataMember]
-        int roll_num { get; set; }
+        public int roll_num { get; set; }
         [DataMember]
-        List<Boolean> attended { get; set; }
+        public List<bool> attended { get; set; }
+
+        public Student(int roll)
+        {
+            roll_num = roll;
+            attended = new List<bool>();
+        }
     }
 }
