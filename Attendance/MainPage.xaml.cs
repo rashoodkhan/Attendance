@@ -112,7 +112,7 @@ namespace Attendance
 
         private void stats_(object sender, System.EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/stats.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/stat_home.xaml", UriKind.Relative));
         }
     }
 }

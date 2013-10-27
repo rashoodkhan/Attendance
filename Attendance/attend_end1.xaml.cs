@@ -111,7 +111,7 @@ namespace Attendance
             }
         }
 
-        private void save(object sender, GestureEventArgs e)
+        private void save(object sender, System.Windows.Input.GestureEventArgs e)
         {
             Batch batch = (Batch)storage[App.batch_name];
 

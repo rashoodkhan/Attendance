@@ -120,7 +120,7 @@ namespace Attendance
 
             List<Student> student_list = (List<Student>)storage[App.batch_name + "student"];
 
-            for (int i = 1; i < batch.num_students; i++)
+            for (int i = 1; i <= batch.num_students; i++)
             {
                 student_list[i].attended.Add(tk_attend.temp_attnd_record[i]);
             }

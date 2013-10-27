@@ -10,86 +10,87 @@ using Microsoft.Phone.Shell;
 using System.IO.IsolatedStorage;
 using System.Windows.Media;
 using System.Windows.Input;
+using System.Diagnostics;
 
 namespace Attendance
 {
-    public class btch_item
-    {
-        public Grid item;
-        private TextBlock name;
-        private String btch_name;
-        stats main;
-
-        private void expand(object sender, RoutedEventArgs e)
-        {
-            App.batch_name = btch_name;
-            App.nameIn = true;
-            main.NavigationService.Navigate(new Uri("/attend.xaml", UriKind.Relative));
-        }
-
-        public btch_item(stats m, int i, String btch_name)
-        {
-            main = m;
-            item = new Grid();
-            this.btch_name = btch_name;
-
-            item.Height = 120;
-            item.Width = 460;
-            item.HorizontalAlignment = HorizontalAlignment.Left;
-            item.VerticalAlignment = VerticalAlignment.Top;
-            item.Margin = new Thickness(10, 10 + i * 120, 0, 0);
-
-            name = new TextBlock();
-
-            item.Children.Add(name);
-
-            name.Height = 38;
-            name.Width = 350;
-            name.TextWrapping = TextWrapping.NoWrap;
-            name.FontSize = 30;
-            name.Margin = new Thickness(0, 0, 0, 0);
-            name.Foreground = new SolidColorBrush((App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush).Color);
-            name.HorizontalAlignment = HorizontalAlignment.Left;
-            name.VerticalAlignment = VerticalAlignment.Top;
-            name.MouseLeftButtonDown += new MouseButtonEventHandler(expand);
-
-            name.Text = btch_name;
-
-        }
-    }
     public partial class stats : PhoneApplicationPage
     {
         public IsolatedStorageSettings storage = IsolatedStorageSettings.ApplicationSettings;
+        Batch batch;
+        List<Student> student_list;
 
         public stats()
         {
             InitializeComponent();
-            reset_list();
+
+            batch = (Batch)storage[App.batch_name];
+            student_list = (List<Student>)storage[App.batch_name+"student"];
+
+            //for (int i = 1; i < student_list.Count; i++)
+            //{
+
+            //    for (int j = 0; j < student_list[i].attended.Count; j++)
+            //    {
+            //        if (student_list[i].attended[j] == true)
+            //            def_disp.Text += Convert.ToString(i) + "   ";
+            //    }
+            //    def_disp.Text += "\n";
+
+            //}
+
+            init();
+            
         }
 
-        public void reset_list()
+        public void init()
         {
-            //Debug.WriteLine(((List<String>)storage[App.batch_list_code]).Count);
-            //Debug.WriteLine(App.storage.Count);
+            id.Text = batch.course_id;
+            name.Text = batch.name;
+            num.Text = batch.lect_num.ToString();
+        }
 
-            batch_disp.Children.Clear();
+        private void filter_tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            String def_list = "";
+            int total = batch.lect_num;
+            int count;
 
-            if (App.batch_name_list.Count == 0)
+            for (int i = 1; i < student_list.Count; i++)
             {
-                err_msg.Visibility = Visibility.Visible;
-                return;
-            }
-            else
-                err_msg.Visibility = Visibility.Collapsed;
+                count = 0;
+                for (int j = 0; j < student_list[i].attended.Count; j++)
+                {
+                    if (student_list[i].attended[j] == true)
+                        count++;
+                }
+                if (list.SelectedItem == less)
+                    Debug.WriteLine("hello");
 
-            int ind = App.batch_name_list.Count;
-            btch_item obj;
-
-            for (int i = 0; i < ind; i++)
-            {
-                obj = new btch_item(this, i, App.batch_name_list[i]);
-                this.batch_disp.Children.Add(obj.item);
+                if (list.SelectedItem == less)
+                {
+                    if (Convert.ToDouble(count) / Convert.ToDouble(total) < Convert.ToDouble(val.Text) / 100)
+                    {
+                        def_list += Convert.ToString(i) + ",   ";
+                    }
+                }
+                else if (list.SelectedItem == more)
+                {
+                    if (Convert.ToDouble(count) / Convert.ToDouble(total) > Convert.ToDouble(val.Text) / 100)
+                    {
+                        def_list += Convert.ToString(i) + ",   ";
+                    }
+                }
+                else if (list.SelectedItem == equal)
+                {
+                    if (Convert.ToDouble(count) / Convert.ToDouble(total) == Convert.ToDouble(val.Text) / 100)
+                    {
+                        def_list += Convert.ToString(i) + ",   ";
+                    }
+                }
             }
+            def_disp.Text = def_list;
+
         }
 
     }
