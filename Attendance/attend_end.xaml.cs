@@ -111,7 +111,7 @@ namespace Attendance
             }
         }
 
-        private void save(object sender, RoutedEventArgs e)
+        private void save(object sender, System.EventArgs e)
         {
             Batch batch = (Batch)storage[App.batch_name];
 

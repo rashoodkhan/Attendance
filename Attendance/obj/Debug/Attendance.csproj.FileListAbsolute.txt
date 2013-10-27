@@ -57,14 +57,12 @@ C:\Attendance\Attendance\Bin\Debug\ru\System.Windows.Interactivity.resources.dll
 C:\Attendance\Attendance\Bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Attendance\Attendance\Bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\Attendance\Attendance\Bin\Debug\AppManifest.xaml
-C:\Attendance\Attendance\Bin\Debug\Properties\WMAppManifest.xml
 C:\Attendance\Attendance\Bin\Debug\Attendance_Debug_AnyCPU.xap
 C:\Attendance\Attendance\obj\Debug\XapCacheFile.xml
 C:\Attendance\Attendance\obj\Debug\attend_end.g.cs
 C:\Attendance\Attendance\obj\Debug\stats.g.cs
 C:\Attendance\Attendance\Bin\Debug\Assets\AppBar\add.png
 C:\Attendance\Attendance\Bin\Debug\Assets\AppBar\folder.png
-C:\Attendance\Attendance\obj\Debug\Attendance.csprojResolveAssemblyReference.cache
 C:\Attendance\Attendance\obj\Debug\tk_attend.g.cs
 C:\Attendance\Attendance\obj\Debug\attend_end1.g.cs
 C:\Attendance\Attendance\obj\Debug\stat_home.g.cs

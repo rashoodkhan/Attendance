@@ -71,23 +71,36 @@ namespace Attendance
                 {
                     if (Convert.ToDouble(count) / Convert.ToDouble(total) < Convert.ToDouble(val.Text) / 100)
                     {
-                        def_list += Convert.ToString(i) + ",   ";
+                        if (def_list.Length != 0)
+                        {
+                            def_list += ",  ";
+                        }
+                        def_list += Convert.ToString(i);
                     }
                 }
                 else if (list.SelectedItem == more)
                 {
                     if (Convert.ToDouble(count) / Convert.ToDouble(total) > Convert.ToDouble(val.Text) / 100)
                     {
-                        def_list += Convert.ToString(i) + ",   ";
+                        if (def_list.Length != 0)
+                        {
+                            def_list += ",  ";
+                        }
+                        def_list += Convert.ToString(i);
                     }
                 }
                 else if (list.SelectedItem == equal)
                 {
                     if (Convert.ToDouble(count) / Convert.ToDouble(total) == Convert.ToDouble(val.Text) / 100)
                     {
-                        def_list += Convert.ToString(i) + ",   ";
+                        if (def_list.Length != 0)
+                        {
+                            def_list += ",  ";
+                        }
+                        def_list += Convert.ToString(i);
                     }
                 }
+                
             }
             def_disp.Text = def_list;
 

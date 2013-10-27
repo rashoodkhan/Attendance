@@ -30,23 +30,23 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="course id" VerticalAlignment="Top" Height="54" Width="154" FontSize="35"/>
-            <TextBlock HorizontalAlignment="Left" Margin="0,54,0,0" TextWrapping="Wrap" Text="class name" VerticalAlignment="Top" Height="54" Width="187" FontSize="35"/>
-            <TextBlock HorizontalAlignment="Left" Margin="0,113,0,0" TextWrapping="Wrap" Text="total classes" VerticalAlignment="Top" Height="54" Width="187" FontSize="35"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,60,0,0" TextWrapping="Wrap" Text="class name" VerticalAlignment="Top" Height="54" Width="187" FontSize="35"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,123,0,0" TextWrapping="Wrap" Text="total classes" VerticalAlignment="Top" Height="54" Width="187" FontSize="35"/>
             <TextBlock x:Name="id" HorizontalAlignment="Left" Margin="223,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="233" FontSize="36"/>
-            <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="223,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="233" FontSize="36"/>
-            <TextBlock x:Name="num" HorizontalAlignment="Left" Margin="223,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="233" FontSize="36"/>
-            <TextBlock HorizontalAlignment="Left" Margin="0,192,0,0" TextWrapping="Wrap" Text="filter students with attendance " VerticalAlignment="Top" Height="45" Width="446" FontSize="30"/>
-            <TextBox x:Name="val" HorizontalAlignment="Left" Height="72" Margin="136,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
-            <Button Content="Filter" HorizontalAlignment="Left" Margin="297,237,0,0" VerticalAlignment="Top" Width="159" Tap="filter_tap"/>
+            <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="223,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="233" FontSize="36"/>
+            <TextBlock x:Name="num" HorizontalAlignment="Left" Margin="223,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="233" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,202,0,0" TextWrapping="Wrap" Text="filter students with attendance " VerticalAlignment="Top" Height="45" Width="446" FontSize="30"/>
+            <TextBox x:Name="val" HorizontalAlignment="Left" Height="72" Margin="142,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+            <Button Content="Filter" HorizontalAlignment="Left" Margin="297,247,0,0" VerticalAlignment="Top" Width="159" Tap="filter_tap"/>
 
-            <Grid HorizontalAlignment="Left" Height="299" Margin="0,325,0,0" VerticalAlignment="Top" Width="456">
+            <Grid HorizontalAlignment="Left" Height="299" Margin="0,325,0,0" VerticalAlignment="Top" Width="456" Visibility="Collapsed">
                 <TextBlock x:Name="def_disp" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="299" Width="456" FontSize="36"/>
-                <toolkit:ListPicker x:Name="list" SelectionMode="Single" Margin="0,-85,321,190">
-                    <toolkit:ListPickerItem x:Name="less" Content="less than"/>
-                    <toolkit:ListPickerItem x:Name="more" Content="more than"/>
-                    <toolkit:ListPickerItem x:Name="equal" Content="equal to"/>
-                </toolkit:ListPicker>
             </Grid>
+            <toolkit:ListPicker x:Name="list" SelectionMode="Single" Margin="6,250,315,190">
+                <toolkit:ListPickerItem x:Name="less" Content="less than"/>
+                <toolkit:ListPickerItem x:Name="more" Content="more than"/>
+                <toolkit:ListPickerItem x:Name="equal" Content="equal to"/>
+            </toolkit:ListPicker>
         </Grid>
 
     </Grid>
